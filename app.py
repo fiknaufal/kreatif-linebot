@@ -10,6 +10,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+from linebot.models.send_messages import ImageSendMessage
 
 app = Flask(__name__)
 
@@ -38,9 +39,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     """ Here's all the messages will be handled and processed by the program """
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='ayam ayam'))
+    image_message = ImageSendMessage(
+    original_content_url='https://drive.google.com/file/d/1JMbPhynn3ALS7mRqd8j8dzSFcHpdFKLJ/view',
+    preview_image_url='https://drive.google.com/file/d/1JMbPhynn3ALS7mRqd8j8dzSFcHpdFKLJ/view'
+    )
+    if event.message.text == "bot, ultah hari ini" :
+        line_bot_api.reply_message(event.reply_token, image_message)
+
 
 
 if __name__ == "__main__":
