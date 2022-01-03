@@ -41,7 +41,7 @@ def handle_message(event):
     """ Here's all the messages will be handled and processed by the program """
     image_message = ImageSendMessage(
     original_content_url='https://drive.google.com/file/d/1GFDObqx3WLx5ul7fprHRnxt_rG9UJPSy/view',
-    preview_image_url='https://drive.google.com/file/d/1jMzWzfLD9MjBZR0UCiywCY97mGq-Z_W6/view'
+    preview_image_url='https://drive.google.com/file/d/17K-I4iur9eoilTV6vWS9MJwPb3dA4VdC/view'
     )
     if event.message.text == "bot, ultah hari ini" :
         line_bot_api.reply_message(event.reply_token, image_message)
